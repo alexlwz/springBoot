@@ -13,7 +13,7 @@ public class CicdServerApplication {
 
 		// SpringApplication app = new
 		// SpringApplication(CicdServerApplication.class);
-		// app.setBannerMode(Banner.Mode.OFF);
+		// app. setBannerMode(Banner.Mode.OFF);
 		// app.run(args);
 	}
 	// @Bean
