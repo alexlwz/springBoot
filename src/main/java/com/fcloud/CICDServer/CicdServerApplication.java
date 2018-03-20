@@ -1,11 +1,13 @@
 package com.fcloud.CICDServer;
 
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+@MapperScan("com.fcloud.CICDServer.Mapper")
 public class CicdServerApplication {
 
 	public static void main(String[] args) {
