@@ -29,7 +29,7 @@ public interface UserMapper {
 		@Result(property = "passWord", column = "PASSWORD"),
 		@Result(property = "userRight", column = "USER_RIGHT")
 	})
-	UserEntity getOne(Long id);
+	UserEntity getOne(String userName);
 
 	@Insert("INSERT INTO T_USER(USER_NAME,PASSWORD,USER_RIGHT) VALUES(#{userName}, #{passWord}, #{userRight})")
 	void insert(UserEntity user);
@@ -38,6 +38,6 @@ public interface UserMapper {
 	void update(UserEntity user);
 
 	@Delete("DELETE FROM T_USER WHERE USER_NAME=#{userName}")
-	void delete(Long id);
+	void delete(String userName);
 
 }

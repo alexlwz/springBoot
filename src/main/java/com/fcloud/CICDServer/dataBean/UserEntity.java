@@ -1,6 +1,7 @@
 package com.fcloud.CICDServer.dataBean;
 
 public class UserEntity {
+	
 	public String userName;
 	public String passWord;
 	public String userRight;
@@ -24,6 +25,10 @@ public class UserEntity {
 		this.userRight = userRight;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "UserEntity [userName=" + userName + ", passWord=" + passWord
+				+ ", userRight=" + userRight + "]";
+	}
 
 }

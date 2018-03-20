@@ -1,6 +1,5 @@
 package com.fcloud.CICDServer;
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -32,7 +31,26 @@ public class CicdServerApplicationTests {
 	@Test
 	public void testQueryOne()
 	{
-		
+		String username="Guest";
+		UserEntity userEntity = usermapper.getOne(username);
+		System.out.println(userEntity.toString());
 	}
 	
+	@Test
+	public void testAddOne()
+	{
+		UserEntity userEntity = new UserEntity();
+		userEntity.setUserName("lwz");
+		userEntity.setPassWord("lwz");
+		userEntity.setUserRight("4");
+		usermapper.insert(userEntity);
+	}
+	
+	@Test
+	public void testDelete(){
+		UserEntity userEntity2 = usermapper.getOne("lwz");
+		System.out.println(userEntity2.toString());
+		usermapper.delete("lwz");
+	}
+
 }
