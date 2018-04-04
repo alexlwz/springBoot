@@ -145,6 +145,14 @@
                     }
                 });
             },
+            methods: {
+                //跳转页面
+                clickGo : function(){
+                    this.$router.push({
+                    'path' : /cash/cashList
+                })
+                }
+            },
             //展开收起导航面板
             flod(index){
                 this.menus[index].fold = !this.menus[index].fold;
