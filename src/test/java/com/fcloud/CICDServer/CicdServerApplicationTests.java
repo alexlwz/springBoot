@@ -64,7 +64,7 @@ public class CicdServerApplicationTests {
 	}	
 	
 	@Test
-	@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=36000,rollbackFor=Exception.class)
+	@Transactional//(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=36000,rollbackFor=Exception.class)
 	public void testInstitution(){
 		InstitutionInfo institutionInfo = new InstitutionInfo();
     	institutionInfo.setInstitutionAbbr("aa");
@@ -74,7 +74,7 @@ public class CicdServerApplicationTests {
 		institutionMapper.insert(institutionInfo);
 		InstitutionInfo test = institutionMapper.getOne(institutionInfo.getInstitutionId());
 		System.out.println(test.getInstitutionName());
-		int i=10/0;
+		//int i=10/0;
 	}
 	
 	

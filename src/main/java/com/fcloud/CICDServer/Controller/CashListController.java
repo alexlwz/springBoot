@@ -45,16 +45,9 @@ public class CashListController {
 	
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public String getPersonsAll(
-            //@RequestParam(value = "page", required = false) Integer pages,
             @RequestParam("sex") String sex
-            //@RequestParam("email") String email
     ) {
-      /*  Sort sort = new Sort(Direction.ASC, "id");
-        Pageable pageable = new PageRequest(pages - 1, maxPerPage, sort);
-        PaginationFormatting paginInstance = new PaginationFormatting();*/
     	System.out.println("just for test"+sex);
         return sex;
-        //return paginInstance.filterQuery(sex, email, pageable);
     }
-
 }

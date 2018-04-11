@@ -26,7 +26,11 @@ public class InstitutionService {
 		institutionMapper.insert(institutionInfo);
 		InstitutionInfo test = institutionMapper.getOne(institutionInfo.getInstitutionId());
 		System.out.println(test.getInstitutionName());
-		int j = 10/0;
+		if(test.getInstitutionId().equals("xx"))
+		{
+			int j = 10/0;
+		}
+		//
 		//institutionMapper.insert(institutionInfo);
 	}
 	

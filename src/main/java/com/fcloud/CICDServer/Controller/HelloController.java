@@ -2,7 +2,10 @@ package com.fcloud.CICDServer.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fcloud.CICDServer.Service.InstitutionService;
@@ -44,11 +47,12 @@ public class HelloController {
     	return name+age+money;
     }
     
-    @RequestMapping("/infoInstitution")
-    public void obtaininfoInstitution(){
+    @RequestMapping(value = "/infoInstitution",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    //@RequestMapping("/infoInstitution")
+    public void obtaininfoInstitution(@RequestParam("Institution") String InstitutionId){
     	InstitutionInfo institutionInfo = new InstitutionInfo();
     	institutionInfo.setInstitutionAbbr("aa");
-    	institutionInfo.setInstitutionId("111");
+    	institutionInfo.setInstitutionId(InstitutionId);
     	institutionInfo.setInstitutionName("liwz");
     	institutionInfo.setInstitutionType("y");
     	institutionService.obtainInstitution(institutionInfo);
