@@ -5,7 +5,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fcloud.CICDServer.Service.InstitutionService;
 import com.fcloud.CICDServer.dataBean.AccountInfo;
+import com.fcloud.CICDServer.dataBean.InstitutionInfo;
 
 
 @RestController
@@ -15,6 +17,9 @@ public class HelloController {
 
 	@Autowired
 	AccountInfo accountinfo;
+	
+	@Autowired
+	InstitutionService institutionService;
 	
 	@Value("${test2.name}")
 	private String name;
@@ -37,6 +42,16 @@ public class HelloController {
     @RequestMapping("/info1")
     public String obatainInfo1(){
     	return name+age+money;
+    }
+    
+    @RequestMapping("/infoInstitution")
+    public void obtaininfoInstitution(){
+    	InstitutionInfo institutionInfo = new InstitutionInfo();
+    	institutionInfo.setInstitutionAbbr("aa");
+    	institutionInfo.setInstitutionId("111");
+    	institutionInfo.setInstitutionName("liwz");
+    	institutionInfo.setInstitutionType("y");
+    	institutionService.obtainInstitution(institutionInfo);
     }
 }
 
