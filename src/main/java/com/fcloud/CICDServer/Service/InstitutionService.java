@@ -10,6 +10,7 @@ import com.fcloud.CICDServer.Mapper.InstitutionMapper;
 import com.fcloud.CICDServer.Mapper.UserMapper;
 import com.fcloud.CICDServer.dataBean.AccountInfo;
 import com.fcloud.CICDServer.dataBean.InstitutionInfo;
+import com.fcloud.CICDServer.dataBean.UserEntity;
 
 @Service
 public class InstitutionService {
@@ -29,9 +30,15 @@ public class InstitutionService {
 		if(test.getInstitutionId().equals("xx"))
 		{
 			int j = 10/0;
+			System.out.println(j);
 		}
-		//
-		//institutionMapper.insert(institutionInfo);
 	}
-	
+	@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout=36000,rollbackFor=Exception.class)
+	public String testInstitution(String institutionId, String userName)
+	{
+		InstitutionInfo institutionInfo = institutionMapper.getOne(institutionId);
+		UserEntity userEntity = usermapper.getOne(userName);		
+		return institutionInfo.getInstitutionName()+userEntity.getPassWord();
+		
+	}
 }

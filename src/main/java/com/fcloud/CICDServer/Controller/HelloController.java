@@ -48,7 +48,6 @@ public class HelloController {
     }
     
     @RequestMapping(value = "/infoInstitution",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    //@RequestMapping("/infoInstitution")
     public void obtaininfoInstitution(@RequestParam("Institution") String InstitutionId){
     	InstitutionInfo institutionInfo = new InstitutionInfo();
     	institutionInfo.setInstitutionAbbr("aa");
@@ -57,5 +56,14 @@ public class HelloController {
     	institutionInfo.setInstitutionType("y");
     	institutionService.obtainInstitution(institutionInfo);
     }
+    
+	@RequestMapping(value = "/mixture", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public String obtaininfo(@RequestParam("institutionId") String institutionId,
+			@RequestParam("userName") String userName) {
+			return institutionService.testInstitution(institutionId, userName);
+	}
+    
+	
+	
 }
 

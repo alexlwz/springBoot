@@ -44,9 +44,7 @@ public class CashListController {
 	}
 	
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getPersonsAll(
-            @RequestParam("sex") String sex
-    ) {
+    public String getPersonsAll(@RequestParam("sex") String sex) {
     	System.out.println("just for test"+sex);
         return sex;
     }
