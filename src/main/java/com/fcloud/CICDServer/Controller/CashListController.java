@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.xml.ws.RequestWrapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fcloud.CICDServer.Mapper.UserMapper;
 import com.fcloud.CICDServer.dataBean.AccountInfo;
+import com.fcloud.CICDServer.dataBean.UserEntity;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -47,5 +51,10 @@ public class CashListController {
     public String getPersonsAll(@RequestParam("sex") String sex) {
     	System.out.println("just for test"+sex);
         return sex;
+    }
+    @RequestMapping(value = "/test/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getPerson(@PathVariable ("id") String userName){
+    	UserEntity userEntity =usermapper.getOne(userName);
+    	return userEntity.toString()+"test";
     }
 }
