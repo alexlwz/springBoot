@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.xml.ws.RequestWrapper;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,7 +23,7 @@ import com.fcloud.CICDServer.dataBean.UserEntity;
 @RestController
 @RequestMapping("/Cashlist")
 public class CashListController {
-	
+
 	@Autowired
 	AccountInfo accountInfo;
 
@@ -46,15 +44,16 @@ public class CashListController {
 				results, HttpStatus.OK);
 		return responseEntity;
 	}
-	
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getPersonsAll(@RequestParam("sex") String sex) {
-    	System.out.println("just for test"+sex);
-        return sex;
-    }
-    @RequestMapping(value = "/test/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getPerson(@PathVariable ("id") String userName){
-    	UserEntity userEntity =usermapper.getOne(userName);
-    	return userEntity.toString()+"test";
-    }
+
+	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getPersonsAll(@RequestParam("sex") String sex) {
+		System.out.println("just for test" + sex);
+		return sex;
+	}
+
+	@RequestMapping(value = "/test/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getPerson(@PathVariable("id") String userName) {
+		UserEntity userEntity = usermapper.getOne(userName);
+		return userEntity.toString() + "test";
+	}
 }
